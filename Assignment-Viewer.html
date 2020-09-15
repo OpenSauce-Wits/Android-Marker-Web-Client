@@ -3,6 +3,8 @@
     <head>
         <title>Android Marker Emulator Viewer</title>
         <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="AssignmentTable.json"></script>
+        <script src="CreateTable.js"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -16,8 +18,9 @@
         <div class="main_content">
             <div class="header">Android Marker Emulator Viewer</div>
             <div class = "info">
-                <h3>This is where the assignment table goes with assoc priorties and such</h3>
-                <div class="assignment_table"></div>
+                <input type="button" onclick=CreateTableFromJSON() value="Create Table From JSON" id="Assignments" />
+                <p id="showData"></p>
+                <script type="text/javascript">window.onload = Assignments.click()</script>
             </div>
         </div>
     </div>
