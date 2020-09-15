@@ -12,8 +12,7 @@ function CreateTableFromJSON(state) {
     */
 
    /*dummy procedure of getting data from local file*/
-//    var fr = new FileReader();
-//    fr.readAsBinaryString(AssignmentTable);
+    // var myData = JSON.parse(Assignments);
 
     var emulatorValues = [{"emulatorId":1,"status":"free","assignmentID":"N/a"},{"emulatorId":2,"status":"marking","assignmentID":8},{"emulatorId":3,"status":"marking","assignmentID":4},{"emulatorId":4,"status":"free","assignmentID":"N/a"},{"emulatorId":5,"status":"marking","assignmentID":3},{"emulatorId":6,"status":"free","assignmentID":"N/a"}];
 
