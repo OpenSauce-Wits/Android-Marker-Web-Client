@@ -3,6 +3,7 @@
     <head>
         <title>Android Marker Emulator Viewer</title>
         <link rel="stylesheet" href="style.css">
+        <script src="CreateTable.js"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -10,14 +11,14 @@
                 <ul>
                     <li><a href="Assignment-Viewer.html">Assignments</a></li>  
                     <li><a href="#Emulators">Emulators</a></li>
-                    <li><a href="about.asp">About</a></li>
+                    <li><a href="About.html">About</a></li>
                 </ul>
             </div>
         <div class="main_content">
-            <div class="header">Android Marker Emulator Viewer</div>
+            <div class="header"><h1>Android Marker Emulator Viewer</h1></div>
             <div class = "info">
-                <h3>This is where the emulator table goes with assoc buttons and such</h3>
-                <div class="emulator_table"></div>
+                <table class="showData" id="showData"></table>
+                <script type="text/javascript">window.onload = CreateTableFromJSON(2)</script>
             </div>
         </div>
         </div>

@@ -1,4 +1,4 @@
-function CreateTableFromJSON() {
+function CreateTableFromJSON(state) {
     /*For getting data from server
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
@@ -14,7 +14,10 @@ function CreateTableFromJSON() {
    /*dummy procedure of getting data from local file*/
 //    var fr = new FileReader();
 //    fr.readAsBinaryString(AssignmentTable);
-    var values = [
+
+    var emulatorValues = [{"emulatorId":1,"status":"free","assignmentID":"N/a"},{"emulatorId":2,"status":"marking","assignmentID":8},{"emulatorId":3,"status":"marking","assignmentID":4},{"emulatorId":4,"status":"free","assignmentID":"N/a"},{"emulatorId":5,"status":"marking","assignmentID":3},{"emulatorId":6,"status":"free","assignmentID":"N/a"}];
+
+    var assignmentValues = [
         {
           "assignmentID": 1,
           "assignmentName": "Lab 3",
@@ -95,6 +98,11 @@ function CreateTableFromJSON() {
       ]
       ;
 
+    if(state == 1){
+       var values = assignmentValues;
+    }else{
+       var values = emulatorValues;
+    }
     // EXTRACT VALUE FOR HTML HEADER. 
     var col = [];
     for (var i = 0; i < values.length; i++) {
