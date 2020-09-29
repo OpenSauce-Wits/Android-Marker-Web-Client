@@ -19,20 +19,6 @@ function handleClick(state){
 }
 
 function CreateTableFromJSON(state) {
-    /*For getting data from server
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText);
-            document.getElementById("demo").innerHTML = myObj.name;
-        }
-        };
-        xmlhttp.open("GET", "json_demo.txt", true);
-        xmlhttp.send(); 
-    */
-
-   /*DUMMY PROCEDURE OF GETTING DATA FROM LOCAL FILE*/
-    // var myData = JSON.parse(Assignments);
 
      var emulatorValues = [{"emulatorId":1,"status":"0","assignmentID":"N/a"},{"emulatorId":2,"status":"1","assignmentID":8},{"emulatorId":3,"status":"1","assignmentID":4},{"emulatorId":4,"status":"0","assignmentID":"N/a"},{"emulatorId":5,"status":"1","assignmentID":3},{"emulatorId":6,"status":"0","assignmentID":"N/a"}];
 
@@ -119,13 +105,8 @@ function CreateTableFromJSON(state) {
 
       //BASED ON WHICH PAGE IS ACCESSED THE STATE DECIDES WHICH JSON TABLE TO RETRIEVE AND READ
     if(state == 1){
-      //var values = require('AssignmentTable.json');
       var values = assignmentValues;
     }else{
-      //  var request = new XMLHttpRequest();
-      //  request.open("GET","EmulatorTable.json",false);
-      //  request.send(null);
-      //  var values = JSON.parse(request.responseText);
        var values = emulatorValues;
     }
 
@@ -141,7 +122,7 @@ function CreateTableFromJSON(state) {
 
     // CREATE DYNAMIC TABLE.
     var table = document.createElement("table");
-
+    console.log(table);
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
 
     var tr = table.insertRow(-1);                   // TABLE ROW.
