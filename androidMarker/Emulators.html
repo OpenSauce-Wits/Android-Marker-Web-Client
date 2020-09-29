@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <title>Create a html table with java script</title>
+</head>
+
+<script type='text/javascript'>;
+
+function addCell(tr, val) {
+    var td = document.createElement('td');
+
+    td.innerHTML = val;
+
+    tr.appendChild(td)
+}
+
+
+function addRow(tbl, val_1, val_2, val_3,val_4) {
+    var tr = document.createElement('tr');
+
+    addCell(tr, val_1);
+    addCell(tr, val_2);
+    addCell(tr, val_3);
+    addCell(tr, val_4);
+
+    tbl.appendChild(tr)
+}
+
+function main() {
+    tbl = document.getElementById('tbl');
+
+    addRow(tbl, 'ID', 'Emulator_ID', 'State','Device');
+    readJSONFile('EmulatorTable.json', (json) => {
+        let array = JSON.parse(json);
+        for(let i =0;i < array.length;i++){
+            addRow(tbl, array[i]['id'], array[i]['emulator_id'], array[i]['state'],array[i]['in_use']);
+            // console.log(array[i]);
+            // console.log("\n");
+        }
+    });
+
+}
+function readJSONFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function () {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+
+
+</script>
+
+<body onload='main()'>
+
+The content of the following table was<br>
+dynamically created with JavaScript:
+<p>
+
+<table id='tbl' border=1></table>
+
+</body>
+</html>
