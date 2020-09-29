@@ -122,11 +122,27 @@ function CreateTableFromJSON(state) {
       //var values = require('AssignmentTable.json');
       var values = assignmentValues;
     }else{
-      //  var request = new XMLHttpRequest();
-      //  request.open("GET","EmulatorTable.json",false);
-      //  request.send(null);
-      //  var values = JSON.parse(request.responseText);
        var values = emulatorValues;
+        function readTextFile(file, callback) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.overrideMimeType("application/json");
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function () {
+                if (rawFile.readyState === 4 && rawFile.status == "200") {
+                    callback(rawFile.responseText);
+                }
+            }
+            rawFile.send(null);
+        }
+        var readArray;
+        readTextFile('EmulatorTable.json', (json) => {
+            readArray = JSON.parse(json);
+            for(let i =0;i < readArray.length;i++){
+                console.log(readArray[i]);
+                console.log("\n");
+            }
+        });
+       // var values = readArray;
     }
 
     // EXTRACT VALUE FOR HTML HEADER. 
