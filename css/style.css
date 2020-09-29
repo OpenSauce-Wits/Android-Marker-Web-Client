@@ -150,3 +150,16 @@ footer {
     font-weight: bold;
     color: #6e6f6f;
   }
+
+  /*Button  formatting*/
+  button{
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    padding: 2.5;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.18);
+  }
